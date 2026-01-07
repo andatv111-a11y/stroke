@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrokeCare - Penyuluhan & Monitoring Stroke</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .smooth-transition { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #22d3ee 100%); }
+        .blur-navbar { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.8); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 blur-navbar shadow-sm smooth-transition">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <span class="text-3xl">🧠</span>
+                    <span class="text-xl font-bold text-slate-800">StrokeCare</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#beranda" class="text-slate-700 hover:text-blue-600 smooth-transition">Beranda</a>
+                    <a href="#edukasi" class="text-slate-700 hover:text-blue-600 smooth-transition">Edukasi</a>
+                    <a href="#monitoring" class="text-slate-700 hover:text-blue-600 smooth-transition">Monitoring</a>
+                    <a href="#skrining" class="text-slate-700 hover:text-blue-600 smooth-transition">Skrining</a>
+                    <a href="#rehabilitasi" class="text-slate-700 hover:text-blue-600 smooth-transition">Rehabilitasi</a>
+                </div>
+                <button id="mobileMenuBtn" class="md:hidden text-slate-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-3 space-y-2">
+                <a href="#beranda" class="block text-slate-700 hover:text-blue-600">Beranda</a>
+                <a href="#edukasi" class="block text-slate-700 hover:text-blue-600">Edukasi</a>
+                <a href="#monitoring" class="block text-slate-700 hover:text-blue-600">Monitoring</a>
+                <a href="#skrining" class="block text-slate-700 hover:text-blue-600">Skrining</a>
+                <a href="#rehabilitasi" class="block text-slate-700 hover:text-blue-600">Rehabilitasi</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="pt-24 pb-16 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                Kenali Stroke Sejak Dini,<br>Cegah Dampaknya
+            </h1>
+            <p class="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
+                Platform edukasi dan monitoring komprehensif untuk mencegah dan mengelola risiko stroke dengan teknologi modern
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#edukasi" class="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-cyan-50 smooth-transition card-hover">
+                    Mulai Edukasi
+                </a>
+                <a href="#skrining" class="bg-cyan-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-cyan-600 smooth-transition card-hover">
+                    Cek Risiko Stroke
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edukasi Section -->
+    <section id="edukasi" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Edukasi Stroke</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
+                    <div class="text-4xl mb-4">📖</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Pengertian Stroke</h3>
+                    <p class="text-slate-600 text-sm">Stroke adalah kondisi ketika pasokan darah ke otak terganggu atau berkurang, menyebabkan sel-sel otak kekurangan oksigen dan nutrisi.</p>
+                    <button onclick="toggleAccordion('accordion1')" class="mt-4 text-blue-600 text-sm font-semibold hover:text-blue-700">Selengkapnya →</button>
+                    <div id="accordion1" class="hidden mt-3 text-slate-600 text-sm">
+                        <p class="pt-3 border-t">Stroke termasuk kondisi darurat medis yang memerlukan penanganan segera. Semakin cepat ditangani, kemungkinan kerusakan otak dapat diminimalkan.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
+                    <div class="text-4xl mb-4">🔴</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Jenis Stroke</h3>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Stroke Iskemik:</strong> Penyumbatan pembuluh darah (85% kasus)</p>
+                    <p class="text-slate-600 text-sm"><strong>Stroke Hemoragik:</strong> Pecahnya pembuluh darah di otak</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
+                    <div class="text-4xl mb-4">⚠️</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Gejala FAST</h3>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li><strong>F</strong>ace - Wajah tidak simetris</li>
+                        <li><strong>A</strong>rm - Lengan lemas/mati rasa</li>
+                        <li><strong>S</strong>peech - Bicara pelo/tidak jelas</li>
+                        <li><strong>T</strong>ime - Segera ke RS</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
+                    <div class="text-4xl mb-4">💚</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Pencegahan</h3>
+                    <ul class="text-slate-600 text-sm space-y-1">
+                        <li>✓ Kontrol tekanan darah</li>
+                        <li>✓ Diet sehat</li>
+                        <li>✓ Olahraga rutin</li>
+                        <li>✓ Hindari rokok</li>
+                        <li>✓ Kelola stress</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monitoring Section -->
+    <section id="monitoring" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Monitoring Pasien</h2>
+            
+            <!-- Form Input -->
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Tambah Data Monitoring</h3>
+                <form id="monitoringForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Pasien</label>
+                        <input type="text" id="nama" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Tekanan Darah (mmHg)</label>
+                            <input type="text" id="tekananDarah" placeholder="120/80" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Gula Darah (mg/dL)</label>
+                            <input type="number" id="gula" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Kolesterol (mg/dL)</label>
+                            <input type="number" id="kolesterol" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Aktivitas Fisik</label>
+                            <select id="aktivitas" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Pilih</option>
+                                <option value="Rendah">Rendah</option>
+                                <option value="Sedang">Sedang</option>
+                                <option value="Tinggi">Tinggi</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Kepatuhan Obat</label>
+                        <div class="flex gap-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="obat" value="Ya" required class="mr-2">
+                                <span class="text-slate-700">Ya</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="obat" value="Tidak" class="mr-2">
+                                <span class="text-slate-700">Tidak</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Tanggal</label>
+                        <input type="date" id="tanggal" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 smooth-transition">
+                        Simpan Data
+                    </button>
+                </form>
+            </div>
+
+            <!-- Dashboard Statistik -->
+            <div class="grid md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="text-3xl mb-2">📊</div>
+                    <div class="text-2xl font-bold text-slate-800" id="totalData">0</div>
+                    <div class="text-sm text-slate-600">Total Data</div>
+                </div>
+                <div class="bg-green-50 rounded-xl p-6 shadow-md">
+                    <div class="text-3xl mb-2">✅</div>
+                    <div class="text-2xl font-bold text-green-600" id="risikoAman">0</div>
+                    <div class="text-sm text-slate-600">Aman</div>
+                </div>
+                <div class="bg-yellow-50 rounded-xl p-6 shadow-md">
+                    <div class="text-3xl mb-2">⚠️</div>
+                    <div class="text-2xl font-bold text-yellow-600" id="risikoWaspada">0</div>
+                    <div class="text-sm text-slate-600">Waspada</div>
+                </div>
+                <div class="bg-red-50 rounded-xl p-6 shadow-md">
+                    <div class="text-3xl mb-2">🚨</div>
+                    <div class="text-2xl font-bold text-red-600" id="risikoTinggi">0</div>
+                    <div class="text-sm text-slate-600">Risiko Tinggi</div>
+                </div>
+            </div>
+
+            <!-- Tabel Riwayat -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6 border-b">
+                    <h3 class="text-xl font-bold text-slate-800">Riwayat Monitoring</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-slate-100">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Nama</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Tekanan Darah</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Gula</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Kolesterol</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Aktivitas</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Tanggal</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody" class="divide-y divide-slate-200">
+                            <tr>
+                                <td colspan="8" class="px-6 py-8 text-center text-slate-500">Belum ada data monitoring</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skrining Section -->
+    <section id="skrining" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Skrining Risiko Stroke</h2>
+            
+            <div class="bg-slate-50 rounded-xl shadow-lg p-6 mb-6">
+                <form id="skriningForm" class="space-y-6">
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3">1. Apakah usia Anda di atas 55 tahun?</p>
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="q1" value="2" class="mr-2">
+                            <span class="text-slate-700">Ya</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q1" value="0" class="mr-2">
+                            <span class="text-slate-700">Tidak</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3">2. Apakah Anda memiliki tekanan darah tinggi?</p>
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="q2" value="3" class="mr-2">
+                            <span class="text-slate-700">Ya</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q2" value="0" class="mr-2">
+                            <span class="text-slate-700">Tidak</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3">3. Apakah Anda menderita diabetes?</p>
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="q3" value="2" class="mr-2">
+                            <span class="text-slate-700">Ya</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q3" value="0" class="mr-2">
+                            <span class="text-slate-700">Tidak</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3">4. Apakah Anda merokok?</p>
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="q4" value="2" class="mr-2">
+                            <span class="text-slate-700">Ya, rutin</span>
+                        </label>
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="q4" value="1" class="mr-2">
+                            <span class="text-slate-700">Kadang-kadang</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q4" value="0" class="mr-2">
+                            <span class="text-slate-700">Tidak</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3">5. Apakah ada riwayat stroke dalam keluarga?</p>
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="q5" value="2" class="mr-2">
+                            <span class="text-slate-700">Ya</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q5" value="0" class="mr-2">
+                            <span class="text-slate-700">Tidak</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3">6. Seberapa sering Anda berolahraga?</p>
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="q6" value="0" class="mr-2">
+                            <span class="text-slate-700">Rutin (3-5x/minggu)</span>
+                        </label>
+                        <label class="flex items-center mb-2">
+                            <input type="radio" name="q6" value="1" class="mr-2">
+                            <span class="text-slate-700">Kadang-kadang</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q6" value="2" class="mr-2">
+                            <span class="text-slate-700">Jarang/tidak pernah</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-cyan-500 text-white py-3 rounded-lg font-semibold hover:bg-cyan-600 smooth-transition">
+                        Lihat Hasil Skrining
+                    </button>
+                </form>
+            </div>
+
+            <!-- Hasil Skrining -->
+            <div id="hasilSkrining" class="hidden bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 text-center">Hasil Skrining</h3>
+                <div class="text-center mb-6">
+                    <div id="skorSkrining" class="text-5xl font-bold mb-2"></div>
+                    <div id="levelRisiko" class="text-xl font-semibold mb-4"></div>
+                </div>
+                <div id="rekomendasiSkrining" class="bg-slate-50 rounded-lg p-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rehabilitasi Section -->
+    <section id="rehabilitasi" class="py-16 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Rehabilitasi Stroke</h2>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Checklist Latihan Harian</h3>
+                <div id="checklistContainer" class="space-y-3"></div>
+                
+                <!-- Progress Bar -->
+                <div class="mt-6">
+                    <div class="flex justify-between text-sm text-slate-600 mb-2">
+                        <span>Progress Hari Ini</span>
+                        <span id="progressText">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-3">
+                        <div id="progressBar" class="bg-green-500 h-3 rounded-full smooth-transition" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 rounded-xl p-6 border border-blue-200">
+                <h4 class="font-bold text-blue-800 mb-2">💡 Tips Rehabilitasi</h4>
+                <ul class="text-blue-700 text-sm space-y-1">
+                    <li>• Lakukan latihan secara konsisten setiap hari</li>
+                    <li>• Mulai dengan gerakan ringan, tingkatkan bertahap</li>
+                    <li>• Konsultasikan dengan fisioterapis untuk program yang tepat</li>
+                    <li>• Jangan memaksakan diri jika merasa nyeri</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-2xl mb-2">🧠</div>
+            <h3 class="text-xl font-bold mb-2">StrokeCare</h3>
+            <p class="text-slate-400 text-sm">Platform Edukasi & Monitoring Stroke</p>
+            <p class="text-slate-500 text-xs mt-4">© 2026 StrokeCare. Untuk edukasi dan demo kesehatan.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setTodayDate();
+            loadMonitoringData();
+            renderTable();
+            updateStatistics();
+            initRehabilitasi();
+            
+            // Mobile menu toggle
+            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            });
+        });
+
+        // Set today's date
+        function setTodayDate() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('tanggal').value = today;
+        }
+
+        // Accordion toggle
+        function toggleAccordion(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('hidden');
+        }
+
+        // Monitoring Form Submit
+        document.getElementById('monitoringForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveData();
+        });
+
+        // Save Data to LocalStorage
+        function saveData() {
+            const nama = document.getElementById('nama').value;
+            const tekananDarah = document.getElementById('tekananDarah').value;
+            const gula = parseInt(document.getElementById('gula').value);
+            const kolesterol = parseInt(document.getElementById('kolesterol').value);
+            const aktivitas = document.getElementById('aktivitas').value;
+            const obat = document.querySelector('input[name="obat"]:checked').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            const data = {
+                nama,
+                tekananDarah,
+                gula,
+                kolesterol,
+                aktivitas,
+                obat,
+                tanggal,
+                risiko: calculateRisk({ tekananDarah, gula, kolesterol, aktivitas, obat })
+            };
+
+            const existingData = getData();
+            existingData.push(data);
+            localStorage.setItem('monitoringData', JSON.stringify(existingData));
+
+            // Reset form
+            document.getElementById('monitoringForm').reset();
+            setTodayDate();
+
+            // Update display
+            renderTable();
+            updateStatistics();
+
+            alert('✅ Data berhasil disimpan!');
+        }
+
+        // Get Data from LocalStorage
+        function getData() {
+            const data = localStorage.getItem('monitoringData');
+            return data ? JSON.parse(data) : [];
+        }
+
+        // Load monitoring data
+        function loadMonitoringData() {
+            return getData();
+        }
+
+        // Calculate Risk Level
+        function calculateRisk(data) {
+            let score = 0;
+            
+            // Check blood pressure
+            const bp = data.tekananDarah.split('/');
+            const systolic = parseInt(bp[0]);
+            if (systolic >= 140) score += 2;
+            else if (systolic >= 130) score += 1;
+
+            // Check blood sugar
+            if (data.gula >= 200) score += 2;
+            else if (data.gula >= 140) score += 1;
+
+            // Check cholesterol
+            if (data.kolesterol >= 240) score += 2;
+            else if (data.kolesterol >= 200) score += 1;
+
+            // Check physical activity
+            if (data.aktivitas === 'Rendah') score += 1;
+
+            // Check medication compliance
+            if (data.obat === 'Tidak') score += 1;
+
+            if (score >= 5) return 'Tinggi';
+            if (score >= 3) return 'Waspada';
+            return 'Aman';
+        }
+
+        // Render Table
+        function renderTable() {
+            const data = getData();
+            const tbody = document.getElementById('tableBody');
+            
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="px-6 py-8 text-center text-slate-500">Belum ada data monitoring</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.map((item, index) => {
+                const risikoClass = item.risiko === 'Tinggi' ? 'bg-red-100 text-red-700' : 
+                                   item.risiko === 'Waspada' ? 'bg-yellow-100 text-yellow-700' : 
+                                   'bg-green-100 text-green-700';
+                
+                return `
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-6 py-4 text-sm text-slate-800">${item.nama}</td>
+                        <td class="px-6 py-4 text-sm text-slate-600">${item.tekananDarah}</td>
+                        <td class="px-6 py-4 text-sm text-slate-600">${item.gula}</td>
+                        <td class="px-6 py-4 text-sm text-slate-600">${item.kolesterol}</td>
+                        <td class="px-6 py-4 text-sm text-slate-600">${item.aktivitas}</td>
+                        <td class="px-6 py-4 text-sm text-slate-600">${item.tanggal}</td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold ${risikoClass}">
+                                ${item.risiko}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <button onclick="deleteData(${index})" class="text-red-600 hover:text-red-800 text-sm font-semibold">
+                                Hapus
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Delete Data
+        function deleteData(index) {
+            if (confirm('Yakin ingin menghapus data ini?')) {
+                const data = getData();
+                data.splice(index, 1);
+                localStorage.setItem('monitoringData', JSON.stringify(data));
+                renderTable();
+                updateStatistics();
+            }
+        }
+
+        // Update Statistics
+        function updateStatistics() {
+            const data = getData();
+            const total = data.length;
+            const aman = data.filter(d => d.risiko === 'Aman').length;
+            const waspada = data.filter(d => d.risiko === 'Waspada').length;
+            const tinggi = data.filter(d => d.risiko === 'Tinggi').length;
+
+            document.getElementById('totalData').textContent = total;
+            document.getElementById('risikoAman').textContent = aman;
+            document.getElementById('risikoWaspada').textContent = waspada;
+            document.getElementById('risikoTinggi').textContent = tinggi;
+        }
+
+        // Skrining Form Submit
+        document.getElementById('skriningForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveSkrining();
+        });
+
+        // Save and Calculate Skrining
+        function saveSkrining() {
+            const form = document.getElementById('skriningForm');
+            let totalScore = 0;
+
+            for (let i = 1; i <= 6; i++) {
+                const answer = form.querySelector(`input[name="q${i}"]:checked`);
+                if (!answer) {
+                    alert('Mohon jawab semua pertanyaan!');
+                    return;
+                }
+                totalScore += parseInt(answer.value);
+            }
+
+            let level, color, rekomendasi;
+            
+            if (totalScore <= 3) {
+                level = 'Risiko Rendah';
+                color = 'text-green-600';
+                rekomendasi = `
+                    <p class="text-slate-700 mb-3">✅ <strong>Kondisi Anda tergolong baik!</strong></p>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Rekomendasi:</strong></p>
+                    <ul class="text-slate-600 text-sm space-y-1 ml-4">
+                        <li>• Pertahankan gaya hidup sehat</li>
+                        <li>• Rutin berolahraga minimal 30 menit/hari</li>
+                        <li>• Konsumsi makanan bergizi seimbang</li>
+                        <li>• Cek kesehatan rutin 1 tahun sekali</li>
+                    </ul>
+                `;
+            } else if (totalScore <= 7) {
+                level = 'Risiko Sedang';
+                color = 'text-yellow-600';
+                rekomendasi = `
+                    <p class="text-slate-700 mb-3">⚠️ <strong>Anda memiliki beberapa faktor risiko stroke</strong></p>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Rekomendasi:</strong></p>
+                    <ul class="text-slate-600 text-sm space-y-1 ml-4">
+                        <li>• Konsultasi dengan dokter untuk pemeriksaan lebih lanjut</li>
+                        <li>• Kontrol tekanan darah dan gula darah secara rutin</li>
+                        <li>• Tingkatkan aktivitas fisik</li>
+                        <li>• Kurangi konsumsi garam dan makanan berlemak</li>
+                        <li>• Hindari rokok dan alkohol</li>
+                    </ul>
+                `;
+            } else {
+                level = 'Risiko Tinggi';
+                color = 'text-red-600';
+                rekomendasi = `
+                    <p class="text-slate-700 mb-3">🚨 <strong>Anda memiliki risiko tinggi stroke</strong></p>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Segera lakukan:</strong></p>
+                    <ul class="text-slate-600 text-sm space-y-1 ml-4">
+                        <li>• <strong>Konsultasi dengan dokter segera</strong></li>
+                        <li>• Lakukan pemeriksaan kesehatan menyeluruh</li>
+                        <li>• Kontrol ketat tekanan darah, gula darah, dan kolesterol</li>
+                        <li>• Ubah pola hidup: diet sehat, olahraga teratur</li>
+                        <li>• Hentikan kebiasaan merokok</li>
+                        <li>• Pertimbangkan pengobatan preventif</li>
+                    </ul>
+                `;
+            }
+
+            document.getElementById('skorSkrining').textContent = totalScore + '/13';
+            document.getElementById('levelRisiko').className = `text-xl font-semibold mb-4 ${color}`;
+            document.getElementById('levelRisiko').textContent = level;
+            document.getElementById('rekomendasiSkrining').innerHTML = rekomendasi;
+            document.getElementById('hasilSkrining').classList.remove('hidden');
+
+            // Scroll to result
+            document.getElementById('hasilSkrining').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Initialize Rehabilitasi
+        function initRehabilitasi() {
+            const exercises = [
+                'Latihan rentang gerak lengan (10 menit)',
+                'Latihan rentang gerak kaki (10 menit)',
+                'Latihan keseimbangan duduk (5 menit)',
+                'Latihan berjalan dengan bantuan (15 menit)',
+                'Latihan menggenggam bola karet (5 menit)',
+                'Latihan bicara dan menelan (10 menit)',
+                'Latihan koordinasi mata-tangan (10 menit)',
+                'Peregangan otot (5 menit)'
+            ];
+
+            const container = document.getElementById('checklistContainer');
+            const savedChecklist = JSON.parse(localStorage.getItem('rehabilitasiChecklist') || '[]');
+
+            container.innerHTML = exercises.map((exercise, index) => {
+                const isChecked = savedChecklist.includes(index);
+                return `
+                    <label class="flex items-center p-3 bg-slate-50 rounded-lg hover:bg-slate-100 smooth-transition cursor-pointer">
+                        <input type="checkbox" 
+                               class="mr-3 w-5 h-5 text-green-500 rounded focus:ring-2 focus:ring-green-500" 
+                               ${isChecked ? 'checked' : ''}
+                               onchange="updateRehabilitasi(${index}, this.checked)">
+                        <span class="text-slate-700">${exercise}</span>
+                    </label>
+                `;
+            }).join('');
+
+            updateProgress();
+        }
+
+        // Update Rehabilitasi Checklist
+        function updateRehabilitasi(index, checked) {
+            let checklist = JSON.parse(localStorage.getItem('rehabilitasiChecklist') || '[]');
+            
+            if (checked) {
+                if (!checklist.includes(index)) {
+                    checklist.push(index);
+                }
+            } else {
+                checklist = checklist.filter(i => i !== index);
+            }
+
+            localStorage.setItem('rehabilitasiChecklist', JSON.stringify(checklist));
+            updateProgress();
+        }
+
+        // Update Progress Bar
+        function updateProgress() {
+            const totalExercises = 8;
+            const checklist = JSON.parse(localStorage.getItem('rehabilitasiChecklist') || '[]');
+            const completed = checklist.length;
+            const percentage = Math.round((completed / totalExercises) * 100);
+
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = percentage + '%';
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
