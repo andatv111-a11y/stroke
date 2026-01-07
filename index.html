@@ -429,36 +429,47 @@
 
     <script>
         // Login Authentication
+        const VALID_USERNAME = 'kelompok3';
+        const VALID_PASSWORD = 'kelompok3';
+
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const loginError = document.getElementById('loginError');
-            
-            if (username === 'kelompok3' && password === 'kelompok3') {
-                // Login successful
+
+            if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+                sessionStorage.setItem('isLoggedIn', 'true');
                 document.getElementById('loginModal').classList.add('hidden');
                 document.getElementById('mainContent').classList.remove('hidden');
-                sessionStorage.setItem('isLoggedIn', 'true');
+                
+                renderTable();
+                updateStatistics();
+                initRehabilitasi();
             } else {
-                // Login failed
-                loginError.classList.remove('hidden');
-                setTimeout(() => {
-                    loginError.classList.add('hidden');
-                }, 3000);
+                const errorDiv = document.getElementById('loginError');
+                errorDiv.classList.remove('hidden');
+                setTimeout(() => errorDiv.classList.add('hidden'), 3000);
             }
         });
-        
-        // Check if already logged in
-        if (sessionStorage.getItem('isLoggedIn') === 'true') {
-            document.getElementById('loginModal').classList.add('hidden');
-            document.getElementById('mainContent').classList.remove('hidden');
-        }
+
+        // Check login status on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                document.getElementById('loginModal').classList.add('hidden');
+                document.getElementById('mainContent').classList.remove('hidden');
+                renderTable();
+                updateStatistics();
+                initRehabilitasi();
+            }
+            
+            // Set today's date in form
+            setTodayDate();
+        });
 
         // Mobile Menu Toggle
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
         });
 
         // Accordion Toggle
@@ -467,14 +478,19 @@
             element.classList.toggle('hidden');
         }
 
+        // Set Today's Date
+        function setTodayDate() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('tanggal').value = today;
+        }
+
         // Monitoring Form Submit
         document.getElementById('monitoringForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            saveData();
+            saveMonitoring();
         });
 
-        // Save Data to LocalStorage
-        function saveData() {
+        function saveMonitoring() {
             const nama = document.getElementById('nama').value;
             const tekananDarah = document.getElementById('tekananDarah').value;
             const gula = parseInt(document.getElementById('gula').value);
@@ -490,21 +506,29 @@
                 kolesterol,
                 aktivitas,
                 obat,
-                tanggal,
-                risiko: calculateRisk({ tekananDarah, gula, kolesterol, aktivitas, obat })
+                tanggal
             };
 
+            // Calculate risk
+            data.risiko = calculateRisk(data);
+
+            // Get existing data
             const existingData = getData();
             existingData.push(data);
+
+            // Save to localStorage
             localStorage.setItem('monitoringData', JSON.stringify(existingData));
 
             // Reset form
             document.getElementById('monitoringForm').reset();
             setTodayDate();
 
-            // Update display
+            // Update display immediately
             renderTable();
             updateStatistics();
+            
+            // Show success feedback
+            alert('Data berhasil disimpan!');
         }
 
         // Get Data from LocalStorage
