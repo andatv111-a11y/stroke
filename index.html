@@ -15,397 +15,453 @@
     </style>
 </head>
 <body class="bg-slate-50">
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 blur-navbar shadow-sm smooth-transition">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-2">
-                    <span class="text-3xl">🧠</span>
-                    <span class="text-xl font-bold text-slate-800">StrokeCare</span>
-                </div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#beranda" class="text-slate-700 hover:text-blue-600 smooth-transition">Beranda</a>
-                    <a href="#edukasi" class="text-slate-700 hover:text-blue-600 smooth-transition">Edukasi</a>
-                    <a href="#monitoring" class="text-slate-700 hover:text-blue-600 smooth-transition">Monitoring</a>
-                    <a href="#skrining" class="text-slate-700 hover:text-blue-600 smooth-transition">Skrining</a>
-                    <a href="#rehabilitasi" class="text-slate-700 hover:text-blue-600 smooth-transition">Rehabilitasi</a>
-                </div>
-                <button id="mobileMenuBtn" class="md:hidden text-slate-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md mx-4 fade-in">
+            <div class="text-center mb-6">
+                <span class="text-6xl">🧠</span>
+                <h2 class="text-3xl font-bold text-slate-800 mt-4">StrokeCare</h2>
+                <p class="text-slate-600 mt-2">Silakan login untuk melanjutkan</p>
             </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 py-3 space-y-2">
-                <a href="#beranda" class="block text-slate-700 hover:text-blue-600">Beranda</a>
-                <a href="#edukasi" class="block text-slate-700 hover:text-blue-600">Edukasi</a>
-                <a href="#monitoring" class="block text-slate-700 hover:text-blue-600">Monitoring</a>
-                <a href="#skrining" class="block text-slate-700 hover:text-blue-600">Skrining</a>
-                <a href="#rehabilitasi" class="block text-slate-700 hover:text-blue-600">Rehabilitasi</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="beranda" class="pt-24 pb-16 gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
-                Kenali Stroke Sejak Dini,<br>Cegah Dampaknya
-            </h1>
-            <p class="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
-                Platform edukasi dan monitoring komprehensif untuk mencegah dan mengelola risiko stroke dengan teknologi modern
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#edukasi" class="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-cyan-50 smooth-transition card-hover">
-                    Mulai Edukasi
-                </a>
-                <a href="#skrining" class="bg-cyan-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-cyan-600 smooth-transition card-hover">
-                    Cek Risiko Stroke
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Edukasi Section -->
-    <section id="edukasi" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Edukasi Stroke</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
-                    <div class="text-4xl mb-4">📖</div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">Pengertian Stroke</h3>
-                    <p class="text-slate-600 text-sm">Stroke adalah kondisi ketika pasokan darah ke otak terganggu atau berkurang, menyebabkan sel-sel otak kekurangan oksigen dan nutrisi.</p>
-                    <button onclick="toggleAccordion('accordion1')" class="mt-4 text-blue-600 text-sm font-semibold hover:text-blue-700">Selengkapnya →</button>
-                    <div id="accordion1" class="hidden mt-3 text-slate-600 text-sm">
-                        <p class="pt-3 border-t">Stroke termasuk kondisi darurat medis yang memerlukan penanganan segera. Semakin cepat ditangani, kemungkinan kerusakan otak dapat diminimalkan.</p>
-                    </div>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
-                    <div class="text-4xl mb-4">🔴</div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">Jenis Stroke</h3>
-                    <p class="text-slate-600 text-sm mb-2"><strong>Stroke Iskemik:</strong> Penyumbatan pembuluh darah (85% kasus)</p>
-                    <p class="text-slate-600 text-sm"><strong>Stroke Hemoragik:</strong> Pecahnya pembuluh darah di otak</p>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
-                    <div class="text-4xl mb-4">⚠️</div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">Gejala FAST</h3>
-                    <ul class="text-slate-600 text-sm space-y-2">
-                        <li><strong>F</strong>ace - Wajah tidak simetris</li>
-                        <li><strong>A</strong>rm - Lengan lemas/mati rasa</li>
-                        <li><strong>S</strong>peech - Bicara pelo/tidak jelas</li>
-                        <li><strong>T</strong>ime - Segera ke RS</li>
-                    </ul>
-                </div>
-                
-                <!-- Card 4 -->
-                <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
-                    <div class="text-4xl mb-4">💚</div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">Pencegahan</h3>
-                    <ul class="text-slate-600 text-sm space-y-1">
-                        <li>✓ Kontrol tekanan darah</li>
-                        <li>✓ Diet sehat</li>
-                        <li>✓ Olahraga rutin</li>
-                        <li>✓ Hindari rokok</li>
-                        <li>✓ Kelola stress</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Monitoring Section -->
-    <section id="monitoring" class="py-16 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Monitoring Pasien</h2>
             
-            <!-- Form Input -->
-            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6 mb-8">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">Tambah Data Monitoring</h3>
-                <form id="monitoringForm" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Pasien</label>
-                        <input type="text" id="nama" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Username</label>
+                    <input type="text" id="username" required 
+                        class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Masukkan username">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Password</label>
+                    <input type="password" id="password" required 
+                        class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Masukkan password">
+                </div>
+                
+                <div id="loginError" class="hidden text-red-600 text-sm text-center bg-red-50 p-3 rounded-lg">
+                    Username atau password salah!
+                </div>
+                
+                <button type="submit" 
+                    class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 smooth-transition">
+                    Login
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center text-sm text-slate-500">
+                <p>Demo: kelompok3 / kelompok3</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Container to hide main content until logged in -->
+    <div id="mainContent" class="hidden">
+        <!-- Navbar -->
+        <nav class="fixed top-0 w-full z-50 blur-navbar shadow-sm smooth-transition">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-3xl">🧠</span>
+                        <span class="text-xl font-bold text-slate-800">StrokeCare</span>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">Tekanan Darah (mmHg)</label>
-                            <input type="text" id="tekananDarah" placeholder="120/80" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">Gula Darah (mg/dL)</label>
-                            <input type="number" id="gula" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#beranda" class="text-slate-700 hover:text-blue-600 smooth-transition">Beranda</a>
+                        <a href="#edukasi" class="text-slate-700 hover:text-blue-600 smooth-transition">Edukasi</a>
+                        <a href="#monitoring" class="text-slate-700 hover:text-blue-600 smooth-transition">Monitoring</a>
+                        <a href="#skrining" class="text-slate-700 hover:text-blue-600 smooth-transition">Skrining</a>
+                        <a href="#rehabilitasi" class="text-slate-700 hover:text-blue-600 smooth-transition">Rehabilitasi</a>
+                    </div>
+                    <button id="mobileMenuBtn" class="md:hidden text-slate-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+                <div class="px-4 py-3 space-y-2">
+                    <a href="#beranda" class="block text-slate-700 hover:text-blue-600">Beranda</a>
+                    <a href="#edukasi" class="block text-slate-700 hover:text-blue-600">Edukasi</a>
+                    <a href="#monitoring" class="block text-slate-700 hover:text-blue-600">Monitoring</a>
+                    <a href="#skrining" class="block text-slate-700 hover:text-blue-600">Skrining</a>
+                    <a href="#rehabilitasi" class="block text-slate-700 hover:text-blue-600">Rehabilitasi</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="beranda" class="pt-24 pb-16 gradient-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                    Kenali Stroke Sejak Dini,<br>Cegah Dampaknya
+                </h1>
+                <p class="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
+                    Platform edukasi dan monitoring komprehensif untuk mencegah dan mengelola risiko stroke dengan teknologi modern
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#edukasi" class="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-cyan-50 smooth-transition card-hover">
+                        Mulai Edukasi
+                    </a>
+                    <a href="#skrining" class="bg-cyan-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-cyan-600 smooth-transition card-hover">
+                        Cek Risiko Stroke
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Edukasi Section -->
+        <section id="edukasi" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Edukasi Stroke</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
+                        <div class="text-4xl mb-4">📖</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Pengertian Stroke</h3>
+                        <p class="text-slate-600 text-sm">Stroke adalah kondisi ketika pasokan darah ke otak terganggu atau berkurang, menyebabkan sel-sel otak kekurangan oksigen dan nutrisi.</p>
+                        <button onclick="toggleAccordion('accordion1')" class="mt-4 text-blue-600 text-sm font-semibold hover:text-blue-700">Selengkapnya →</button>
+                        <div id="accordion1" class="hidden mt-3 text-slate-600 text-sm">
+                            <p class="pt-3 border-t">Stroke termasuk kondisi darurat medis yang memerlukan penanganan segera. Semakin cepat ditangani, kemungkinan kerusakan otak dapat diminimalkan.</p>
                         </div>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">Kolesterol (mg/dL)</label>
-                            <input type="number" id="kolesterol" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">Aktivitas Fisik</label>
-                            <select id="aktivitas" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                <option value="">Pilih</option>
-                                <option value="Rendah">Rendah</option>
-                                <option value="Sedang">Sedang</option>
-                                <option value="Tinggi">Tinggi</option>
-                            </select>
-                        </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
+                        <div class="text-4xl mb-4">🔴</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Jenis Stroke</h3>
+                        <p class="text-slate-600 text-sm mb-2"><strong>Stroke Iskemik:</strong> Penyumbatan pembuluh darah (85% kasus)</p>
+                        <p class="text-slate-600 text-sm"><strong>Stroke Hemoragik:</strong> Pecahnya pembuluh darah di otak</p>
                     </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Kepatuhan Obat</label>
-                        <div class="flex gap-4">
-                            <label class="flex items-center">
-                                <input type="radio" name="obat" value="Ya" required class="mr-2">
+                    
+                    <!-- Card 3 -->
+                    <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
+                        <div class="text-4xl mb-4">⚠️</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Gejala FAST</h3>
+                        <ul class="text-slate-600 text-sm space-y-2">
+                            <li><strong>F</strong>ace - Wajah tidak simetris</li>
+                            <li><strong>A</strong>rm - Lengan lemas/mati rasa</li>
+                            <li><strong>S</strong>peech - Bicara pelo/tidak jelas</li>
+                            <li><strong>T</strong>ime - Segera ke RS</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="bg-slate-50 rounded-xl p-6 shadow-md card-hover smooth-transition">
+                        <div class="text-4xl mb-4">💚</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Pencegahan</h3>
+                        <ul class="text-slate-600 text-sm space-y-1">
+                            <li>✓ Kontrol tekanan darah</li>
+                            <li>✓ Diet sehat</li>
+                            <li>✓ Olahraga rutin</li>
+                            <li>✓ Hindari rokok</li>
+                            <li>✓ Kelola stress</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monitoring Section -->
+        <section id="monitoring" class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Monitoring Pasien</h2>
+                
+                <!-- Form Input -->
+                <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6 mb-8">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4">Tambah Data Monitoring</h3>
+                    <form id="monitoringForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Pasien</label>
+                            <input type="text" id="nama" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Tekanan Darah (mmHg)</label>
+                                <input type="text" id="tekananDarah" placeholder="120/80" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Gula Darah (mg/dL)</label>
+                                <input type="number" id="gula" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Kolesterol (mg/dL)</label>
+                                <input type="number" id="kolesterol" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Aktivitas Fisik</label>
+                                <select id="aktivitas" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="">Pilih</option>
+                                    <option value="Rendah">Rendah</option>
+                                    <option value="Sedang">Sedang</option>
+                                    <option value="Tinggi">Tinggi</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Kepatuhan Obat</label>
+                            <div class="flex gap-4">
+                                <label class="flex items-center">
+                                    <input type="radio" name="obat" value="Ya" required class="mr-2">
+                                    <span class="text-slate-700">Ya</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="obat" value="Tidak" class="mr-2">
+                                    <span class="text-slate-700">Tidak</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Tanggal</label>
+                            <input type="date" id="tanggal" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 smooth-transition">
+                            Simpan Data
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Dashboard Statistik -->
+                <div class="grid md:grid-cols-4 gap-4 mb-8">
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="text-3xl mb-2">📊</div>
+                        <div class="text-2xl font-bold text-slate-800" id="totalData">0</div>
+                        <div class="text-sm text-slate-600">Total Data</div>
+                    </div>
+                    <div class="bg-green-50 rounded-xl p-6 shadow-md">
+                        <div class="text-3xl mb-2">✅</div>
+                        <div class="text-2xl font-bold text-green-600" id="risikoAman">0</div>
+                        <div class="text-sm text-slate-600">Aman</div>
+                    </div>
+                    <div class="bg-yellow-50 rounded-xl p-6 shadow-md">
+                        <div class="text-3xl mb-2">⚠️</div>
+                        <div class="text-2xl font-bold text-yellow-600" id="risikoWaspada">0</div>
+                        <div class="text-sm text-slate-600">Waspada</div>
+                    </div>
+                    <div class="bg-red-50 rounded-xl p-6 shadow-md">
+                        <div class="text-3xl mb-2">🚨</div>
+                        <div class="text-2xl font-bold text-red-600" id="risikoTinggi">0</div>
+                        <div class="text-sm text-slate-600">Risiko Tinggi</div>
+                    </div>
+                </div>
+
+                <!-- Tabel Riwayat -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6 border-b">
+                        <h3 class="text-xl font-bold text-slate-800">Riwayat Monitoring</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-slate-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Nama</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Tekanan Darah</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Gula</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Kolesterol</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Aktivitas</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Tanggal</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody" class="divide-y divide-slate-200">
+                                <tr>
+                                    <td colspan="8" class="px-6 py-8 text-center text-slate-500">Belum ada data monitoring</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skrining Section -->
+        <section id="skrining" class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Skrining Risiko Stroke</h2>
+                
+                <div class="bg-slate-50 rounded-xl shadow-lg p-6 mb-6">
+                    <form id="skriningForm" class="space-y-6">
+                        <div>
+                            <p class="font-semibold text-slate-800 mb-3">1. Apakah usia Anda di atas 55 tahun?</p>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="q1" value="2" class="mr-2">
                                 <span class="text-slate-700">Ya</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="radio" name="obat" value="Tidak" class="mr-2">
+                                <input type="radio" name="q1" value="0" class="mr-2">
                                 <span class="text-slate-700">Tidak</span>
                             </label>
                         </div>
+
+                        <div>
+                            <p class="font-semibold text-slate-800 mb-3">2. Apakah Anda memiliki tekanan darah tinggi?</p>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="q2" value="3" class="mr-2">
+                                <span class="text-slate-700">Ya</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q2" value="0" class="mr-2">
+                                <span class="text-slate-700">Tidak</span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <p class="font-semibold text-slate-800 mb-3">3. Apakah Anda menderita diabetes?</p>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="q3" value="2" class="mr-2">
+                                <span class="text-slate-700">Ya</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q3" value="0" class="mr-2">
+                                <span class="text-slate-700">Tidak</span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <p class="font-semibold text-slate-800 mb-3">4. Apakah Anda merokok?</p>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="q4" value="2" class="mr-2">
+                                <span class="text-slate-700">Ya, rutin</span>
+                            </label>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="q4" value="1" class="mr-2">
+                                <span class="text-slate-700">Kadang-kadang</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q4" value="0" class="mr-2">
+                                <span class="text-slate-700">Tidak</span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <p class="font-semibold text-slate-800 mb-3">5. Apakah ada riwayat stroke dalam keluarga?</p>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="q5" value="2" class="mr-2">
+                                <span class="text-slate-700">Ya</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q5" value="0" class="mr-2">
+                                <span class="text-slate-700">Tidak</span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <p class="font-semibold text-slate-800 mb-3">6. Seberapa sering Anda berolahraga?</p>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="q6" value="0" class="mr-2">
+                                <span class="text-slate-700">Rutin (3-5x/minggu)</span>
+                            </label>
+                            <label class="flex items-center mb-2">
+                                <input type="radio" name="q6" value="1" class="mr-2">
+                                <span class="text-slate-700">Kadang-kadang</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q6" value="2" class="mr-2">
+                                <span class="text-slate-700">Jarang/tidak pernah</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-cyan-500 text-white py-3 rounded-lg font-semibold hover:bg-cyan-600 smooth-transition">
+                            Lihat Hasil Skrining
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Hasil Skrining -->
+                <div id="hasilSkrining" class="hidden bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4 text-center">Hasil Skrining</h3>
+                    <div class="text-center mb-6">
+                        <div id="skorSkrining" class="text-5xl font-bold mb-2"></div>
+                        <div id="levelRisiko" class="text-xl font-semibold mb-4"></div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Tanggal</label>
-                        <input type="date" id="tanggal" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 smooth-transition">
-                        Simpan Data
-                    </button>
-                </form>
+                    <div id="rekomendasiSkrining" class="bg-slate-50 rounded-lg p-4"></div>
+                </div>
             </div>
+        </section>
 
-            <!-- Dashboard Statistik -->
-            <div class="grid md:grid-cols-4 gap-4 mb-8">
-                <div class="bg-white rounded-xl p-6 shadow-md">
-                    <div class="text-3xl mb-2">📊</div>
-                    <div class="text-2xl font-bold text-slate-800" id="totalData">0</div>
-                    <div class="text-sm text-slate-600">Total Data</div>
-                </div>
-                <div class="bg-green-50 rounded-xl p-6 shadow-md">
-                    <div class="text-3xl mb-2">✅</div>
-                    <div class="text-2xl font-bold text-green-600" id="risikoAman">0</div>
-                    <div class="text-sm text-slate-600">Aman</div>
-                </div>
-                <div class="bg-yellow-50 rounded-xl p-6 shadow-md">
-                    <div class="text-3xl mb-2">⚠️</div>
-                    <div class="text-2xl font-bold text-yellow-600" id="risikoWaspada">0</div>
-                    <div class="text-sm text-slate-600">Waspada</div>
-                </div>
-                <div class="bg-red-50 rounded-xl p-6 shadow-md">
-                    <div class="text-3xl mb-2">🚨</div>
-                    <div class="text-2xl font-bold text-red-600" id="risikoTinggi">0</div>
-                    <div class="text-sm text-slate-600">Risiko Tinggi</div>
-                </div>
-            </div>
-
-            <!-- Tabel Riwayat -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div class="p-6 border-b">
-                    <h3 class="text-xl font-bold text-slate-800">Riwayat Monitoring</h3>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead class="bg-slate-100">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Nama</th>
-                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Tekanan Darah</th>
-                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Gula</th>
-                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Kolesterol</th>
-                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Aktivitas</th>
-                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Tanggal</th>
-                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Status</th>
-                                <th class="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody" class="divide-y divide-slate-200">
-                            <tr>
-                                <td colspan="8" class="px-6 py-8 text-center text-slate-500">Belum ada data monitoring</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skrining Section -->
-    <section id="skrining" class="py-16 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Skrining Risiko Stroke</h2>
-            
-            <div class="bg-slate-50 rounded-xl shadow-lg p-6 mb-6">
-                <form id="skriningForm" class="space-y-6">
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3">1. Apakah usia Anda di atas 55 tahun?</p>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="q1" value="2" class="mr-2">
-                            <span class="text-slate-700">Ya</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="radio" name="q1" value="0" class="mr-2">
-                            <span class="text-slate-700">Tidak</span>
-                        </label>
-                    </div>
-
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3">2. Apakah Anda memiliki tekanan darah tinggi?</p>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="q2" value="3" class="mr-2">
-                            <span class="text-slate-700">Ya</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="radio" name="q2" value="0" class="mr-2">
-                            <span class="text-slate-700">Tidak</span>
-                        </label>
-                    </div>
-
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3">3. Apakah Anda menderita diabetes?</p>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="q3" value="2" class="mr-2">
-                            <span class="text-slate-700">Ya</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="radio" name="q3" value="0" class="mr-2">
-                            <span class="text-slate-700">Tidak</span>
-                        </label>
-                    </div>
-
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3">4. Apakah Anda merokok?</p>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="q4" value="2" class="mr-2">
-                            <span class="text-slate-700">Ya, rutin</span>
-                        </label>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="q4" value="1" class="mr-2">
-                            <span class="text-slate-700">Kadang-kadang</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="radio" name="q4" value="0" class="mr-2">
-                            <span class="text-slate-700">Tidak</span>
-                        </label>
-                    </div>
-
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3">5. Apakah ada riwayat stroke dalam keluarga?</p>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="q5" value="2" class="mr-2">
-                            <span class="text-slate-700">Ya</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="radio" name="q5" value="0" class="mr-2">
-                            <span class="text-slate-700">Tidak</span>
-                        </label>
-                    </div>
-
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3">6. Seberapa sering Anda berolahraga?</p>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="q6" value="0" class="mr-2">
-                            <span class="text-slate-700">Rutin (3-5x/minggu)</span>
-                        </label>
-                        <label class="flex items-center mb-2">
-                            <input type="radio" name="q6" value="1" class="mr-2">
-                            <span class="text-slate-700">Kadang-kadang</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="radio" name="q6" value="2" class="mr-2">
-                            <span class="text-slate-700">Jarang/tidak pernah</span>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="w-full bg-cyan-500 text-white py-3 rounded-lg font-semibold hover:bg-cyan-600 smooth-transition">
-                        Lihat Hasil Skrining
-                    </button>
-                </form>
-            </div>
-
-            <!-- Hasil Skrining -->
-            <div id="hasilSkrining" class="hidden bg-white rounded-xl shadow-lg p-6">
-                <h3 class="text-2xl font-bold text-slate-800 mb-4 text-center">Hasil Skrining</h3>
-                <div class="text-center mb-6">
-                    <div id="skorSkrining" class="text-5xl font-bold mb-2"></div>
-                    <div id="levelRisiko" class="text-xl font-semibold mb-4"></div>
-                </div>
-                <div id="rekomendasiSkrining" class="bg-slate-50 rounded-lg p-4"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rehabilitasi Section -->
-    <section id="rehabilitasi" class="py-16 bg-slate-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Rehabilitasi Stroke</h2>
-            
-            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">Checklist Latihan Harian</h3>
-                <div id="checklistContainer" class="space-y-3"></div>
+        <!-- Rehabilitasi Section -->
+        <section id="rehabilitasi" class="py-16 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-12">Rehabilitasi Stroke</h2>
                 
-                <!-- Progress Bar -->
-                <div class="mt-6">
-                    <div class="flex justify-between text-sm text-slate-600 mb-2">
-                        <span>Progress Hari Ini</span>
-                        <span id="progressText">0%</span>
-                    </div>
-                    <div class="w-full bg-slate-200 rounded-full h-3">
-                        <div id="progressBar" class="bg-green-500 h-3 rounded-full smooth-transition" style="width: 0%"></div>
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4">Checklist Latihan Harian</h3>
+                    <div id="checklistContainer" class="space-y-3"></div>
+                    
+                    <!-- Progress Bar -->
+                    <div class="mt-6">
+                        <div class="flex justify-between text-sm text-slate-600 mb-2">
+                            <span>Progress Hari Ini</span>
+                            <span id="progressText">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-3">
+                            <div id="progressBar" class="bg-green-500 h-3 rounded-full smooth-transition" style="width: 0%"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="bg-blue-50 rounded-xl p-6 border border-blue-200">
-                <h4 class="font-bold text-blue-800 mb-2">💡 Tips Rehabilitasi</h4>
-                <ul class="text-blue-700 text-sm space-y-1">
-                    <li>• Lakukan latihan secara konsisten setiap hari</li>
-                    <li>• Mulai dengan gerakan ringan, tingkatkan bertahap</li>
-                    <li>• Konsultasikan dengan fisioterapis untuk program yang tepat</li>
-                    <li>• Jangan memaksakan diri jika merasa nyeri</li>
-                </ul>
+                <div class="bg-blue-50 rounded-xl p-6 border border-blue-200">
+                    <h4 class="font-bold text-blue-800 mb-2">💡 Tips Rehabilitasi</h4>
+                    <ul class="text-blue-700 text-sm space-y-1">
+                        <li>• Lakukan latihan secara konsisten setiap hari</li>
+                        <li>• Mulai dengan gerakan ringan, tingkatkan bertahap</li>
+                        <li>• Konsultasikan dengan fisioterapis untuk program yang tepat</li>
+                        <li>• Jangan memaksakan diri jika merasa nyeri</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="text-2xl mb-2">🧠</div>
-            <h3 class="text-xl font-bold mb-2">StrokeCare</h3>
-            <p class="text-slate-400 text-sm">Platform Edukasi & Monitoring Stroke</p>
-            <p class="text-slate-500 text-xs mt-4">© 2026 StrokeCare. Untuk edukasi dan demo kesehatan.</p>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="bg-slate-800 text-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="text-2xl mb-2">🧠</div>
+                <h3 class="text-xl font-bold mb-2">StrokeCare</h3>
+                <p class="text-slate-400 text-sm">Platform Edukasi & Monitoring Stroke</p>
+                <p class="text-slate-500 text-xs mt-4">© 2026 StrokeCare. Untuk edukasi dan demo kesehatan.</p>
+            </div>
+        </footer>
+    </div>
 
     <script>
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            setTodayDate();
-            loadMonitoringData();
-            renderTable();
-            updateStatistics();
-            initRehabilitasi();
+        // Login Authentication
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Mobile menu toggle
-            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-                document.getElementById('mobileMenu').classList.toggle('hidden');
-            });
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginError = document.getElementById('loginError');
+            
+            if (username === 'kelompok3' && password === 'kelompok3') {
+                // Login successful
+                document.getElementById('loginModal').classList.add('hidden');
+                document.getElementById('mainContent').classList.remove('hidden');
+                sessionStorage.setItem('isLoggedIn', 'true');
+            } else {
+                // Login failed
+                loginError.classList.remove('hidden');
+                setTimeout(() => {
+                    loginError.classList.add('hidden');
+                }, 3000);
+            }
         });
-
-        // Set today's date
-        function setTodayDate() {
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('tanggal').value = today;
+        
+        // Check if already logged in
+        if (sessionStorage.getItem('isLoggedIn') === 'true') {
+            document.getElementById('loginModal').classList.add('hidden');
+            document.getElementById('mainContent').classList.remove('hidden');
         }
 
-        // Accordion toggle
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Accordion Toggle
         function toggleAccordion(id) {
             const element = document.getElementById(id);
             element.classList.toggle('hidden');
@@ -449,8 +505,6 @@
             // Update display
             renderTable();
             updateStatistics();
-
-            alert('✅ Data berhasil disimpan!');
         }
 
         // Get Data from LocalStorage
